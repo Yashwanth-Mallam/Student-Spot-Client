@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 import { LogIn, Menu, X, UserPlus } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/Uicomponents/ui/button";
-import LoginModal from "../../login/page"; // Update if the path changes
-import SignupModal from "../../signup/page"; // Add this component
+import LoginModal from "../../components/layout/LoginModal"; // Update if the path changes
+import SignupModal from "../../components/layout/SingupModal"; // Add this component
 
 const navLinks = [
   { name: "Home", href: "#" },
