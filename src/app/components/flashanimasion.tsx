@@ -31,14 +31,14 @@ export default function SplashScreen() {
           <span className="text-[#e63946]">Student </span>
           <span className="text-[#f77f00]">Spot</span>
         </motion.h1>
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className="mt-2 text-lg text-center text-gray-600"
         >
           Your One Stop Shop For All Things Tech
-        </motion.p>
+        </motion.p> */}
       </motion.div>
     </div>
   );

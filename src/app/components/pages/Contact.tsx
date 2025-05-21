@@ -1,171 +1,56 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/Uicomponents/ui/button";
 import { Card, CardContent } from "@/Uicomponents/ui/card";
-import { Input } from "@/Uicomponents/ui/input";
-import { Textarea } from "@/Uicomponents/ui/textarea";
-import { toast } from "sonner";
-import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/Uicomponents/ui/button";
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Your message has been sent successfully!");
-
-      // Reset form
-      const form = e.target as HTMLFormElement;
-      form.reset();
-    }, 1500);
-  };
-
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Have questions or want to learn more about our services? Reach out
-            to our team and we'll get back to you as soon as possible.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4">
+      <h1 className="text-4xl font-bold text-center">
+        Connect With <span className="text-orange-500">Us</span>
+      </h1>
+      <p className="text-center text-gray-600 max-w-2xl mt-4">
+        Join our growing community and stay updated with the latest
+        opportunities and insights. Follow us on social media and become part of
+        The Student Spot family.
+      </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
-            <Card>
-              <CardContent className="p-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Full Name
-                      </label>
-                      <Input id="name" placeholder="John Doe" required />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      placeholder="How can we help you?"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Your message here..."
-                      rows={5}
-                      required
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-[#e63946] hover:bg-[#c1121f] text-white"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Card className="h-full">
-              <CardContent className="p-6 flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-bold mb-6">
-                    Contact Information
-                  </h3>
-
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <Mail className="h-5 w-5 text-[#f77f00] mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium">Email</p>
-                        <p className="text-gray-600">
-                          contact@thestudentspot.com
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <Phone className="h-5 w-5 text-[#f77f00] mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium">Phone</p>
-                        <p className="text-gray-600">+1 (555) 123-4567</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <MapPin className="h-5 w-5 text-[#f77f00] mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium">Location</p>
-                        <p className="text-gray-600">
-                          123 Tech Campus Drive
-                          <br />
-                          San Francisco, CA 94105
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <p className="text-sm text-gray-600">
-                    Office Hours: Monday to Friday, 9:00 AM - 5:00 PM PST
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 w-full max-w-5xl">
+        {[
+          { title: "WhatsApp Community", emoji: "💬" },
+          { title: "LinkedIn", emoji: "💼" },
+          { title: "YouTube", emoji: "📽️" },
+          { title: "Instagram", emoji: "📸" },
+        ].map((item) => (
+          <Card key={item.title} className="text-center py-6">
+            <CardContent className="flex flex-col items-center justify-center">
+              <div className="text-3xl mb-2">{item.emoji}</div>
+              <p className="text-lg font-medium text-gray-800">{item.title}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
-    </section>
+
+      <Card className="mt-12 max-w-xl w-full">
+        <CardContent className="flex flex-col items-center py-8">
+          <h2 className="text-xl font-bold mb-4">Meet Our Founder</h2>
+          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-md mb-4">
+            <Image
+              src="/founder.jpg"
+              alt="Founder"
+              width={96}
+              height={96}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <p className="text-center text-gray-600 max-w-sm mb-4">
+            Connect with our CEO & Founder to learn more about The Student
+            Spot's mission and vision.
+          </p>
+          <Button className="bg-red-600 hover:bg-red-700 text-white">
+            Connect with the Founder
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

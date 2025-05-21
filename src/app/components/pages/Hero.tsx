@@ -3,7 +3,8 @@
 import { Button } from "@/Uicomponents/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
+import Image from "next/image";
+import { Card, CardContent, CardHeader } from "@/Uicomponents/ui/card";
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 min-h-screen flex items-center">
@@ -60,41 +61,26 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden lg:flex justify-center"
           >
-            <div className="relative p-8 bg-gray-50 rounded-lg shadow-sm">
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
-                <StudentSpotLogo className="w-20 h-20" />
-              </div>
-              <div className="pt-12 text-center">
-                <h3 className="text-3xl font-bold mb-2">
-                  <span className="text-black">The </span>
-                  <span className="text-[#e63946]">Student </span>
-                  <span className="text-[#f77f00]">Spot</span>
-                </h3>
-                <p className="text-gray-600">
-                  Your One Stop Shop For All Things Tech
-                </p>
-              </div>
-            </div>
+            <Card
+              className="w-full max-w-md shadow-2lg"
+              style={{ boxShadow: "0 4px 20px rgba(230, 57, 70, 0.4)" }}
+            >
+              <CardHeader className="flex justify-center pb-0">
+                <Image
+                  src="/studentSpotlogo.jpg"
+                  alt="Student Spot Logo"
+                  width={200}
+                  height={200}
+                  className="rounded-lg"
+                />
+              </CardHeader>
+              <CardContent className="text-center pt-4">
+                <p className="text-gray-600">Welcome to Student Spot</p>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-function StudentSpotLogo({ className = "w-10 h-10" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 200 200"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M100 20L120 60L100 100L80 60L100 20Z" fill="#f77f00" />
-      <path d="M60 60L80 100L60 140L40 100L60 60Z" fill="#e63946" />
-      <path d="M140 60L160 100L140 140L120 100L140 60Z" fill="#f77f00" />
-      <path d="M100 100L120 140L100 180L80 140L100 100Z" fill="#e63946" />
-      <circle cx="100" cy="20" r="5" fill="#FFD700" />
-    </svg>
   );
 }
