@@ -136,13 +136,15 @@ export default function LoginModal({ onClose }: LoginModalProps) {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm">
-              <span className="text-gray-600">Don't have an account? </span>
-              <Link
+              <span className="text-gray-600">
+                Don't have an account? kindly Sign up{" "}
+              </span>
+              {/* <Link
                 href="/signup"
                 className="text-[#f77f00] hover:text-[#e76f00] font-medium"
               >
                 Sign up
-              </Link>
+              </Link> */}
             </div>
           </CardContent>
         </Card>

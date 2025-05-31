@@ -161,13 +161,15 @@ export default function SignupModal({ onClose }: SignupModalProps) {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm">
-              <span className="text-gray-600">Already have an account? </span>
-              <Link
+              <span className="text-gray-600">
+                Already have an account? kindly login{" "}
+              </span>
+              {/* <Link
                 href="/login"
                 className="text-[#f77f00] hover:text-[#e76f00] font-medium"
               >
                 Sign in
-              </Link>
+              </Link> */}
             </div>
           </CardContent>
         </Card>
